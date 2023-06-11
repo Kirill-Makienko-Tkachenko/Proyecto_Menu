@@ -48,3 +48,16 @@ public:
         std::cout << "Es Integral: " << (isIntegral ? "Sí" : "No") << std::endl;
     }
 };
+
+//Overload << operator
+ostream& operator<<(ostream& os, Granos& grano) {
+    os << "Nombre: " << grano.getNombre() << endl;
+    os << "Tipo de Ingrediente: " << grano.getTipoIngrediente() << endl;
+    os << "Calorías: " << grano.getCalorias() << endl;
+    os << "Carbohidratos: " << grano.getCarbohidratos() << endl;
+    os << "Grasas: " << grano.getGrasas() << endl;
+    os << "Proteínas: " << grano.getProteinas() << endl;
+    os << "Sodio: " << grano.getSodio() << endl;
+    os << "Es Integral: " << (grano.getIsIntegral() ? "Sí" : "No") << endl;
+    return os;
+}

@@ -18,3 +18,5 @@ The maximum quantity of calories will depend on the BMI of the person an whether
  - 30<x<39.9 is "Obersity"
  - x<40 is "Obesity"
 (https://www.nhsinform.scot/healthy-living/food-and-nutrition/healthy-eating-and-weight-loss/body-mass-index-bmi)
+
+There is going to be a "Minimum menu version" and for any menu/diet undet that quantity of calories the program will give an error

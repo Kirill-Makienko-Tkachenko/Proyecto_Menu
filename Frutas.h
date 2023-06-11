@@ -10,16 +10,16 @@ Kirill Makienko Tkachenko
 
 using namespace std;
 
-class Fruta : public Ingrediente {
+class Frutas : public Ingrediente {
 private:
     int azucar;
 
 public:
     // Default constructor
-    Fruta() {}
+    Frutas() {}
 
     // Parameterized constructor
-    Fruta(string nombre, string tipoIngrediente, int calorias, int carbohidratos, int grasas, int azucar)
+    Frutas(string nombre, string tipoIngrediente, int calorias, int carbohidratos, int grasas, int azucar)
         : Ingrediente(nombre, tipoIngrediente, calorias, carbohidratos, grasas), azucar(azucar) {}
 
     // Setter and Getter for azucar
@@ -36,3 +36,15 @@ public:
         cout << "Azúcar: " << azucar << endl;
     }
 };
+
+//Overload << operator
+ostream& operator<<(ostream& os, Frutas& fruta) {
+    os << "Nombre: " << fruta.getNombre() << endl;
+    os << "Tipo de Ingrediente: " << fruta.getTipoIngrediente() << endl;
+    os << "Calorías: " << fruta.getCalorias() << endl;
+    os << "Carbohidratos: " << fruta.getCarbohidratos() << endl;
+    os << "Grasas: " << fruta.getGrasas() << endl;
+    os << "Azúcar: " << fruta.getAzucar() << endl;
+    return os;
+}
+

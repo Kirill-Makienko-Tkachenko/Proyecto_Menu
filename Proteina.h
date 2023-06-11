@@ -53,3 +53,18 @@ public:
         cout << "Sodio: " << sodio << endl;
     }
 };
+
+//Overload << operator
+
+ostream& operator<<(ostream& os, Proteina& proteina) {
+    os << "Nombre: " << proteina.getNombre() << endl;
+    os << "Tipo de Ingrediente: " << proteina.getTipoIngrediente() << endl;
+    os << "Calorías: " << proteina.getCalorias() << endl;
+    os << "Carbohidratos: " << proteina.getCarbohidratos() << endl;
+    os << "Grasas: " << proteina.getGrasas() << endl;
+    os << "Grasas Saturadas: " << proteina.getGrasasSaturadas() << endl;
+    os << "Proteínas: " << proteina.getProteinas() << endl;
+    os << "Colesterol: " << proteina.getColesterol() << endl;
+    os << "Sodio: " << proteina.getSodio() << endl;
+    return os;
+}

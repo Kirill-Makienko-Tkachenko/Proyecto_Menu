@@ -48,3 +48,17 @@ public:
         std::cout << "Colesterol: " << colesterol << std::endl;
     }
 };
+
+//Overload << operator
+
+std::ostream& operator<<(std::ostream& os, Lacteos& lacteo) {
+    os << "Nombre: " << lacteo.getNombre() << std::endl;
+    os << "Tipo de Ingrediente: " << lacteo.getTipoIngrediente() << std::endl;
+    os << "Calorías: " << lacteo.getCalorias() << std::endl;
+    os << "Carbohidratos: " << lacteo.getCarbohidratos() << std::endl;
+    os << "Grasas: " << lacteo.getGrasas() << std::endl;
+    os << "Grasas Saturadas: " << lacteo.getGrasasSaturadas() << std::endl;
+    os << "Proteínas: " << lacteo.getProteinas() << std::endl;
+    os << "Colesterol: " << lacteo.getColesterol() << std::endl;
+    return os;
+}
