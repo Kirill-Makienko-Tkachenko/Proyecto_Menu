@@ -1,6 +1,6 @@
 <mxfile host="65bd71144e">
     <diagram id="fYRTFpRBtkyWKEEywaFe" name="Page-1">
-        <mxGraphModel dx="895" dy="650" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+        <mxGraphModel dx="790" dy="818" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
@@ -113,7 +113,7 @@
                     <mxGeometry y="188" width="220" height="62" as="geometry"/>
                 </mxCell>
                 <mxCell id="43" value="Todas las dietas se van a conformar de 1 alimento de cada uno, si la cantidad calorica lo permite, va a haber un menu con calorias minimas requeridas y nada menor a eso. Nutricionalmente nadie deberia de comer menos de cierta cantidad de calorias al dia y por eso el limite" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
-                    <mxGeometry x="540" y="580" width="295" height="120" as="geometry"/>
+                    <mxGeometry x="950" y="830" width="295" height="120" as="geometry"/>
                 </mxCell>
                 <mxCell id="45" value="1" style="endArrow=open;html=1;endSize=12;startArrow=diamondThin;startSize=14;startFill=0;edgeStyle=orthogonalEdgeStyle;align=left;verticalAlign=bottom;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" target="34" edge="1">
                     <mxGeometry x="-1" y="3" relative="1" as="geometry">
@@ -214,8 +214,32 @@
                         <mxPoint x="360" y="580" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="70" value="Anadir clase usuario donde puedas guardar dietas" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=25;" vertex="1" parent="1">
-                    <mxGeometry x="540" y="768" width="310" height="30" as="geometry"/>
+                <mxCell id="70" value="Anadir clase usuario donde puedas guardar dietas" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=25;" parent="1" vertex="1">
+                    <mxGeometry x="950" y="1018" width="310" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="71" value="Usuario" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;" parent="1" vertex="1">
+                    <mxGeometry x="600" y="610" width="220" height="120" as="geometry"/>
+                </mxCell>
+                <mxCell id="72" value="- String nombreUsuario&#10;- Int BMI " style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="71" vertex="1">
+                    <mxGeometry y="26" width="220" height="44" as="geometry"/>
+                </mxCell>
+                <mxCell id="73" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" parent="71" vertex="1">
+                    <mxGeometry y="70" width="220" height="18" as="geometry"/>
+                </mxCell>
+                <mxCell id="74" value="+ int Calcular BMI" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="71" vertex="1">
+                    <mxGeometry y="88" width="220" height="32" as="geometry"/>
+                </mxCell>
+                <mxCell id="75" value="" style="endArrow=block;dashed=1;endFill=0;endSize=12;html=1;entryX=1.001;entryY=0.003;entryDx=0;entryDy=0;entryPerimeter=0;exitX=0.003;exitY=0.526;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="1" source="73" target="40">
+                    <mxGeometry width="160" relative="1" as="geometry">
+                        <mxPoint x="600" y="690" as="sourcePoint"/>
+                        <mxPoint x="560" y="490" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="76" value="" style="endArrow=block;dashed=1;endFill=0;endSize=12;html=1;entryX=1;entryY=0;entryDx=0;entryDy=0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="74" target="30">
+                    <mxGeometry width="160" relative="1" as="geometry">
+                        <mxPoint x="610.6600000000001" y="699.4679999999998" as="sourcePoint"/>
+                        <mxPoint x="525.22" y="646.432" as="targetPoint"/>
+                    </mxGeometry>
                 </mxCell>
             </root>
         </mxGraphModel>
