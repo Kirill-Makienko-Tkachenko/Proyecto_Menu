@@ -1,0 +1,9 @@
+"Pavo", "Proteina", 189, 0, 0, 0, 28, 62, 0
+"Pollo", "Proteina", 239, 0, 0, 0, 27, 73, 0
+"Pescado", "Proteina", 206, 0, 0, 0, 22, 58, 0
+"Huevos", "Proteina", 155, 1, 11, 3, 13, 373, 124
+"Tofu", "Proteina", 76, 2, 4, 1, 9, 0, 8
+"Lentejas", "Proteina", 116, 20, 0, 0, 9, 0, 2
+"Garbanzos", "Proteina", 164, 27, 3, 0, 9, 0, 2
+"Frijoles", "Proteina", 341, 63, 1, 0, 21, 0, 2
+"Carne", "Proteina", 250, 0, 0, 0, 26, 93, 0

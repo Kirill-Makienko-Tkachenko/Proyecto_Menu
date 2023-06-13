@@ -81,8 +81,24 @@ int opcion6;
 
 
 
+void handleMenuGeneration(vector<Ingrediente>& ingredientes, vector<Frutas>& frutas, vector<Granos>& granos, vector<Lacteos>& lacteos, vector<Proteina>& proteinas, vector<Verdura>& verduras, int position, vector<Usuario>& usuarios, int usuario) {
+    while (true) {
+        cout << "Que desea hacer?" << endl;
+        cout << "1. Generar un menu manualmente" << endl;
+        cout << "2. Generar un menu automaticamente en base a calorias" << endl;
+        cout << "3. Generar un menu automaticamente en base a proteinas" << endl;
+        cout << "4. Salir" << endl;
+        int opcion;
+        cin >> opcion;
 
-     
+        switch (opcion) {
+            case 1:
+            //Some code
+            usuario[position].agregarIngredientes(ingredientes);
+            break;
+            case 2:
+            //Some code
+
 
 
 
