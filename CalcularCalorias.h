@@ -9,31 +9,36 @@ Kirill Makienko Tkachenko
 #include <vector>
 #include "Ingrediente.h"
 
+#pragma once
+
 using namespace std;
 
 //Written with help of ChatGTP
 
 class CalcularCalorias {
 private:
-    vector<Ingrediente*> ingredientes; //Using polymorphism to manipulate a vector of ingredientes which contains Lacteos, Verdura, Frutas and Granos
+    vector<Ingrediente*> ingredientes;
 
 public:
-    // Add an ingredient to the list
     void agregarIngrediente(Ingrediente* ingrediente) {
         ingredientes.push_back(ingrediente);
     }
 
-    // Calculate the total calories
-    const int& calcularTotalCalorias() {
+    void agregarIngredientes(const vector<Ingrediente>& ingredientesVector) {
+        for (const auto& ingrediente : ingredientesVector) {
+            ingredientes.push_back(new Ingrediente(ingrediente));
+        }
+    }
+
+    int calcularTotalCalorias() const {
         int totalCalorias = 0;
-        for (const auto& ingrediente : ingredientes) { //Const auto& <data type (Ingrediente)> : vector ingredientes
+        for (const auto& ingrediente : ingredientes) {
             totalCalorias += ingrediente->getCalorias();
         }
         return totalCalorias;
     }
 
-    // Calculate the total carbohydrates
-    const int& calcularTotalCarbohidratos() {
+    int calcularTotalCarbohidratos() const {
         int totalCarbohidratos = 0;
         for (const auto& ingrediente : ingredientes) {
             totalCarbohidratos += ingrediente->getCarbohidratos();
@@ -41,24 +46,19 @@ public:
         return totalCarbohidratos;
     }
 
-    // Calculate the total fats
-    const int& calcularTotalGrasas() {
+    int calcularTotalGrasas() const {
         int totalGrasas = 0;
         for (const auto& ingrediente : ingredientes) {
             totalGrasas += ingrediente->getGrasas();
         }
         return totalGrasas;
     }
-
-    // Print the total nutrition information
-    void imprimirTotalNutricion() {
-        std::cout << "Total de calorías: " << calcularTotalCalorias() << std::endl;
-        std::cout << "Total de carbohidratos: " << calcularTotalCarbohidratos() << std::endl;
-        std::cout << "Total de grasas: " << calcularTotalGrasas() << std::endl;
-    }
 };
 
-ostream& operator<<(ostream& os, CalcularCalorias& c) {
-        os << "Total de calorías: " << c.calcularTotalCalorias() << "Total de carbohidratos: " << c.calcularTotalCarbohidratos() << "Total de grasas: " << c.calcularTotalGrasas() << endl;
-        return os;
-    }
+
+ostream& operator<<(ostream& os, const CalcularCalorias& c) {
+    os << "Total de calorías: " << c.calcularTotalCalorias() << ", ";
+    os << "Total de carbohidratos: " << c.calcularTotalCarbohidratos() << ", ";
+    os << "Total de grasas: " << c.calcularTotalGrasas();
+    return os;
+}

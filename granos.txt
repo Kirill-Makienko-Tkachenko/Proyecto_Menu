@@ -1,0 +1,9 @@
+"Arroz", "Grano", 130, 28, 0, 2, 6, true
+"Avena", "Grano", 389, 66, 0, 17, 2, false
+"Cebada", "Grano", 354, 73, 0, 12, 2, true
+"Centeno", "Grano", 335, 72, 0, 12, 2, true
+"Maiz", "Grano", 365, 76, 0, 10, 4, false
+"Mijo", "Grano", 378, 73, 0, 11, 1, true
+"Quinoa", "Grano", 368, 64, 0, 14, 6, false
+"Trigo", "Grano", 340, 72, 0, 12, 2, true
+"Trigo Sarraceno", "Grano", 343, 72, 0, 13, 2, true

@@ -8,6 +8,8 @@ Kirill Makienko Tkachenko
 #include <string>
 #include "Ingrediente.h"
 
+#pragma once
+
 //Written with help of ChatGTP
 
 class Lacteos : public Ingrediente {
@@ -52,13 +54,7 @@ public:
 //Overload << operator
 
 std::ostream& operator<<(std::ostream& os, Lacteos& lacteo) {
-    os << "Nombre: " << lacteo.getNombre() << std::endl;
-    os << "Tipo de Ingrediente: " << lacteo.getTipoIngrediente() << std::endl;
-    os << "Calorías: " << lacteo.getCalorias() << std::endl;
-    os << "Carbohidratos: " << lacteo.getCarbohidratos() << std::endl;
-    os << "Grasas: " << lacteo.getGrasas() << std::endl;
-    os << "Grasas Saturadas: " << lacteo.getGrasasSaturadas() << std::endl;
-    os << "Proteínas: " << lacteo.getProteinas() << std::endl;
-    os << "Colesterol: " << lacteo.getColesterol() << std::endl;
+    os << "Nombre: " << lacteo.getNombre() <<  " Tipo de Ingrediente: " << lacteo.getTipoIngrediente() << " Calorías: " << lacteo.getCalorias() << " Carbohidratos: " << lacteo.getCarbohidratos() << " Grasas: " << lacteo.getGrasas() << std::endl;
+    os << " Grasas Saturadas: " << lacteo.getGrasasSaturadas() << " Proteínas: " << lacteo.getProteinas() << " Colesterol: " << lacteo.getColesterol();
     return os;
 }

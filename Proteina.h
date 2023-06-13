@@ -8,6 +8,8 @@ Kirill Makienko Tkachenko
 #include <string>
 #include "Ingrediente.h"
 
+#pragma once
+
 using namespace std;
 
 class Proteina : public Ingrediente {
@@ -57,14 +59,7 @@ public:
 //Overload << operator
 
 ostream& operator<<(ostream& os, Proteina& proteina) {
-    os << "Nombre: " << proteina.getNombre() << endl;
-    os << "Tipo de Ingrediente: " << proteina.getTipoIngrediente() << endl;
-    os << "Calorías: " << proteina.getCalorias() << endl;
-    os << "Carbohidratos: " << proteina.getCarbohidratos() << endl;
-    os << "Grasas: " << proteina.getGrasas() << endl;
-    os << "Grasas Saturadas: " << proteina.getGrasasSaturadas() << endl;
-    os << "Proteínas: " << proteina.getProteinas() << endl;
-    os << "Colesterol: " << proteina.getColesterol() << endl;
-    os << "Sodio: " << proteina.getSodio() << endl;
+    os << "Nombre: " << proteina.getNombre() << "Tipo de Ingrediente: " << proteina.getTipoIngrediente() << "Calorías: " << proteina.getCalorias() << "Carbohidratos: " << proteina.getCarbohidratos() << "Grasas: " << proteina.getGrasas() << endl;
+    os << "Grasas Saturadas: " << proteina.getGrasasSaturadas() << "Proteínas: " << proteina.getProteinas() << "Colesterol: " << proteina.getColesterol() << "Sodio: " << proteina.getSodio();
     return os;
 }

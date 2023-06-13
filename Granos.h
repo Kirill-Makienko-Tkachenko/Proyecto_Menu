@@ -8,6 +8,8 @@ Kirill Makienko Tkachenko
 #include <string>
 #include "Ingrediente.h"
 
+#pragma once
+
 using namespace std;
 
 class Granos : public Ingrediente {
@@ -49,15 +51,9 @@ public:
     }
 };
 
-//Overload << operator
+//Overload <<  operator with 
 ostream& operator<<(ostream& os, Granos& grano) {
-    os << "Nombre: " << grano.getNombre() << endl;
-    os << "Tipo de Ingrediente: " << grano.getTipoIngrediente() << endl;
-    os << "Calorías: " << grano.getCalorias() << endl;
-    os << "Carbohidratos: " << grano.getCarbohidratos() << endl;
-    os << "Grasas: " << grano.getGrasas() << endl;
-    os << "Proteínas: " << grano.getProteinas() << endl;
-    os << "Sodio: " << grano.getSodio() << endl;
-    os << "Es Integral: " << (grano.getIsIntegral() ? "Sí" : "No") << endl;
+    os << "Nombre: " << grano.getNombre() << " Tipo de Ingrediente: " << grano.getTipoIngrediente() << " Calorías: " << grano.getCalorias() << " Carbohidratos: " << grano.getCarbohidratos() << " Grasas: " << grano.getGrasas() << " Proteínas: " << grano.getProteinas() << endl;
+    os << " Sodio: " << grano.getSodio() << " Es Integral: " << (grano.getIsIntegral() ? "Sí" : "No");
     return os;
 }

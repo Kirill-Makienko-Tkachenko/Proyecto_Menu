@@ -8,6 +8,8 @@ Kirill Makienko Tkachenko
 #include <string>
 #include "Ingrediente.h"
 
+#pragma once
+
 //Written with help of ChatGTP
 
 class Verdura : public Ingrediente {
@@ -47,12 +49,7 @@ public:
 //Overload << operator
 
 std::ostream& operator<<(std::ostream& os, Verdura& verdura) {
-    os << "Nombre: " << verdura.getNombre() << std::endl;
-    os << "Tipo de Ingrediente: " << verdura.getTipoIngrediente() << std::endl;
-    os << "Calorías: " << verdura.getCalorias() << std::endl;
-    os << "Carbohidratos: " << verdura.getCarbohidratos() << std::endl;
-    os << "Grasas: " << verdura.getGrasas() << std::endl;
-    os << "Proteínas: " << verdura.getProteinas() << std::endl;
-    os << "Es Orgánico: " << (verdura.getIsOrganico() ? "Sí" : "No") << std::endl;
+    os << "Nombre: " << verdura.getNombre() << " Tipo de Ingrediente: " << verdura.getTipoIngrediente() << " Calorías: " << verdura.getCalorias() << " Carbohidratos: " << verdura.getCarbohidratos() << std::endl;
+    os << "Grasas: " << verdura.getGrasas() << " Proteínas: " << verdura.getProteinas() << " Es Orgánico: " << (verdura.getIsOrganico() ? "Sí" : "No");
     return os;
 }

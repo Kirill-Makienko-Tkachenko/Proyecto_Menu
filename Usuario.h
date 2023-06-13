@@ -1,7 +1,15 @@
+/*
+Proyecto aplicacion de dieta
+Kirill Makienko Tkachenko
+08/06/2023
+*/
+
 
 //Written with ChatGPT
 #include <iostream>
 #include <string>
+
+#pragma once
 
 class Usuario {
 private:
@@ -53,12 +61,3 @@ public:
         return out;
     }
 };
-
-//Overload << operator
-
-std::ostream& operator<<(std::ostream& out, const Usuario& usuario) {
-    out << "Nombre: " << usuario.getNombre() << std::endl;
-    out << "Peso: " << usuario.getPeso() << std::endl;
-    out << "Altura: " << usuario.getAltura() << std::endl;
-    return out;
-}
