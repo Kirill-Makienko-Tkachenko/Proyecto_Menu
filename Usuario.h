@@ -9,7 +9,6 @@ Kirill Makienko Tkachenko
 #include <iostream>
 #include <string>
 #include <vector>
-#include <map>
 #include "Ingrediente.h"
 #include "CalcularCalorias.h"
 
@@ -21,8 +20,7 @@ private:
     double peso;
     double altura;
     vector<Ingrediente> ingredientes; //Used to create a vector of ingredients, which will basically be used as the diet, also not a pointer vector because it gives WAY to much trobule
-    std::map<Ingrediente*, int> ingredientesCalorias; //Used to create a vector of calories that with a map will be used to save the diet and the calorites of the diet
-
+    
 public:
     // Default constructor
     Usuario() {}
@@ -71,23 +69,8 @@ public:
         ingredientes.insert(ingredientes.end(), nuevosIngredientes.begin(), nuevosIngredientes.end());
     }
 
-    // Method to associate calories with ingredients
-    void agregarCalorias(const std::vector<int>& cantidadCalorias) {
-        if (ingredientes.size() != cantidadCalorias.size()) {
-            // Handle error: Ensure the number of ingredients matches the number of calorie values
-            return;
-        }
-        for (size_t i = 0; i < ingredientes.size(); ++i) {
-            ingredientesCalorias[ingredientes[i]] = cantidadCalorias[i];
-        }
-    }
 
-    // Getter for ingredientesCalorias
-    const std::map<Ingrediente*, int>& getIngredientesCalorias() const {
-        return ingredientesCalorias;
-    }
-    //This allows us to store the calories that a diet produces instead of calculating them every time
-
+    
     // Overloading the << operator
     friend std::ostream& operator<<(std::ostream& out, const Usuario& usuario) {
         out << "Nombre: " << usuario.nombre << std::endl;

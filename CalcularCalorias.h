@@ -18,6 +18,7 @@ using namespace std;
 class CalcularCalorias {
 private:
     vector<Ingrediente*> ingredientes;
+    int calorias = 0;
 
 public:
     void agregarIngrediente(Ingrediente* ingrediente) {

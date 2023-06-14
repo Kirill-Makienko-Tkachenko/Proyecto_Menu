@@ -23,9 +23,9 @@ public:
     Granos() {}
 
     // Parameterized constructor
-    Granos(string nombre, string tipoIngrediente, int calorias, int carbohidratos, int grasas,
+    Granos(string nombre, string tipoIngrediente, int calorias, int carbohidratos, int grasas, int gramos, 
            int proteinas, int sodio, bool isIntegral)
-        : Ingrediente(nombre, tipoIngrediente, calorias, carbohidratos, grasas),
+        : Ingrediente(nombre, tipoIngrediente, calorias, carbohidratos, grasas, gramos),
           proteinas(proteinas), sodio(sodio), isIntegral(isIntegral) {}
 
     //Getters

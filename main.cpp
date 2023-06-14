@@ -46,6 +46,7 @@ Kirill Makienko Tkachenko
 #include "Usuario.h"
 #include "Verdura.h"
 #include "CalcularCalorias.h"
+#include "Dieta.h"
 
 using namespace std;
 
@@ -106,7 +107,8 @@ void readFrutasFromFile(std::vector<Frutas>& frutas, const std::string& filename
             iss >> dummy >> calories >> dummy;
             iss >> dummy >> carbohydrates >> dummy;
             iss >> dummy >> fat >> dummy;
-            iss >> protein;
+            iss >> dummy >> protein >> dummy;
+            
 
             Frutas fru(name, type, calories, carbohydrates, fat, protein);
             frutas.push_back(fru);
@@ -365,7 +367,7 @@ void handleMenuGeneration(vector<Ingrediente>& ingredientes, vector<Frutas>& fru
                             opcion4 = false;
                         }
                     }//End of opcion2 == 5
-                ;
+                
                 }//End of while loop, just so I dont loose track of it
                 CalcularCalorias C1;
                 C1.agregarIngredientes(ingredientes);
@@ -376,7 +378,7 @@ void handleMenuGeneration(vector<Ingrediente>& ingredientes, vector<Frutas>& fru
                 usuarios[position].agregarIngredientes(ingredientes);
                 break;
                 }   
-            case 2:
+            case 2: 
                 int BMI = (usuarios[position].getPeso() /  usuarios[position].getAltura());
                 int recomendacion;  // Declare the variable here
                 if(BMI > 18.5){
@@ -393,6 +395,7 @@ void handleMenuGeneration(vector<Ingrediente>& ingredientes, vector<Frutas>& fru
                 cout << "La dieta minma es de 500 Calorias" << endl;
                 int calorias;
                 cin >> calorias;
+                
                 
 
 
@@ -464,6 +467,10 @@ Why I am writing this in english
 
 Also I AM very WORRIED not STRESSED to have a really clean code BECAUSE IF NOT IM NEVER GETTING A 10 ON THIS PROJECT AND THAT SOMETHING I REALLY WANT ALTHOUGH THIS CLASS IS ONLY WORTH 1 CREDIT BUT STILL HUSVIFRUFBVLUIAVDSLUIADWVSLUHIASLHULHIUAWEHLUAEBHAWREHLGUOAHWLEBLH UOIAWELHUIAEBLUHOI
 And I'm getting annoyed that I dont have a trackpad to scroll horizontally and have to go all the way to the little scroll bar on the bottom, to miss it and to try to aim again just to miss it again COPILOT STOP TYING TO AUTOCOMPLETE MY RANT AFDNIOWDNGHAUSOJUNBJHOGSWDFUBOHGDSWUBOHGDUOHBUHO
+
+BUSQUENLA, DONDE QUIERA QUE SERA  BUUUSENLAAAAA, QUE MI VIDA SE ACABA Y EL ANTIDOTO ES ELLA BUUUUUUSSSSQUENNNNLAAAAAAAAAAAAAAAAAAAAAAAAAA
+
+
 */
 //-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
 

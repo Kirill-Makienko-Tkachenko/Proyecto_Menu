@@ -14,12 +14,12 @@ using namespace std;
 class Ingrediente {
 private:
     string nombre, tipoIngrediente;
-    int calorias, carbohidratos, grasas;
+    int calorias, carbohidratos, grasas, gramos;
 
 public:
     // Inline constructor
-    Ingrediente(string nombre, string tipoIngrediente, int calorias, int carbohidratos, int grasas)
-        : nombre(nombre), tipoIngrediente(tipoIngrediente), calorias(calorias), carbohidratos(carbohidratos), grasas(grasas) {}
+    Ingrediente(string nombre, string tipoIngrediente, int calorias, int carbohidratos, int grasas, int gramos)
+        : nombre(nombre), tipoIngrediente(tipoIngrediente), calorias(calorias), carbohidratos(carbohidratos), grasas(grasas), gramos(gramos) {}
 
     // Default constructor
     Ingrediente() = default;

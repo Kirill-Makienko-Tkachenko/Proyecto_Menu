@@ -21,8 +21,8 @@ public:
     Frutas() {}
 
     // Parameterized constructor
-    Frutas(string nombre, string tipoIngrediente, int calorias, int carbohidratos, int grasas, int azucar)
-        : Ingrediente(nombre, tipoIngrediente, calorias, carbohidratos, grasas), azucar(azucar) {}
+    Frutas(string nombre, string tipoIngrediente, int calorias, int carbohidratos, int grasas, int gramos, int azucar)
+        : Ingrediente(nombre, tipoIngrediente, calorias, carbohidratos, grasas, gramos), azucar(azucar) {}
 
     // Setter and Getter for azucar
     void setAzucar(int azucar) { this->azucar = azucar; }

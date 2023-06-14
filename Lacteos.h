@@ -23,9 +23,9 @@ public:
     Lacteos() {}
 
     // Parameterized constructor
-    Lacteos(std::string nombre, std::string tipoIngrediente, int calorias, int carbohidratos, int grasas,
+    Lacteos(std::string nombre, std::string tipoIngrediente, int calorias, int carbohidratos, int grasas, int gramos,
             int grasasSaturadas, int proteinas, int colesterol)
-        : Ingrediente(nombre, tipoIngrediente, calorias, carbohidratos, grasas),
+        : Ingrediente(nombre, tipoIngrediente, calorias, carbohidratos, grasas, gramos),
           grasasSaturadas(grasasSaturadas), proteinas(proteinas), colesterol(colesterol) {}
 
     // Setters and Getters
