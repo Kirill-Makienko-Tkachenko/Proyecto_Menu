@@ -134,7 +134,7 @@ public:
     //Getters and setters, thihs should be used sparingly, the only one that I see real use is the return of ingredients, nevertheless I wrote them just for good practice and just in case someone needs it
     int getCalorias() { return calorias; }
     void setCalorias(int calorias) {this->calorias = calorias;}
-    vector<Ingrediente> &getIngredientes() {return ingredientes;}
+    vector<Ingrediente*> &getIngredientes() {return ingredientes;}
     void setIngredientes(vector<Ingrediente*> ingredientes) {this->ingredientes = ingredientes;}
     int getPerFrutas() {return perFrutas;}
     void setPerFrutas(int perFrutas) {this->perFrutas = perFrutas;}
