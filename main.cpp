@@ -254,6 +254,7 @@ void readVerdurasFromFile(std::vector<Verdura>& verduras, const std::string& fil
 
 // function to handle menu generation options
 void handleMenuGeneration(vector<Ingrediente>& ingredientes, vector<Frutas>& frutas, vector<Granos>& granos, vector<Lacteos>& lacteos, vector<Proteina>& proteinas, vector<Verdura>& verduras, size_t position, vector<Usuario>& usuarios) {
+    
     while (true) {
         cout << "Que desea hacer?" << endl;
         cout << "1. Generar un menu manualmente" << endl;
@@ -382,7 +383,7 @@ void handleMenuGeneration(vector<Ingrediente>& ingredientes, vector<Frutas>& fru
                 usuarios[position].agregarIngredientes(ingredientes);
                 break;
                 }   
-            case 2: 
+            case 2: {
                 int BMI = (usuarios[position].getPeso() /  usuarios[position].getAltura());
                 int recomendacion;  // Declare the variable here
                 if(BMI > 18.5){
@@ -396,13 +397,19 @@ void handleMenuGeneration(vector<Ingrediente>& ingredientes, vector<Frutas>& fru
                 }
                 cout << "Cuantas calorias quiere consumir?" << endl;
                 cout << "La cantidad minima para usted, en base a su edad es " << recomendacion << endl;
-                cout << "La dieta minma es de 500 Calorias" << endl;
+                cout << "La dieta minma es de 500 Calorias" << endl; 
                 int calorias;
                 cin >> calorias;
+                Dieta D1(calorias, frutas, verduras, granos, lacteos, proteinas);
+                D1.calcularCaloriasDieta();
+                D1.calcularDieta(frutas, verduras, granos, lacteos, proteinas);
+                usuarios[position].agregarIngredientes(D1.getIngredientes());
                 
                 
 
 
+               
+                }
                 break;
             case 3:
                 // Generate menu based on protein
@@ -474,6 +481,8 @@ And I'm getting annoyed that I dont have a trackpad to scroll horizontally and h
 
 BUSQUENLA, DONDE QUIERA QUE SERA  BUUUSENLAAAAA, QUE MI VIDA SE ACABA Y EL ANTIDOTO ES ELLA BUUUUUUSSSSQUENNNNLAAAAAAAAAAAAAAAAAAAAAAAAAA
 
+Algo de lo que mes estoy dando cuenta es que a cpp le ENCANTA inventarse errores, estras trabajando bien agusto y de la nada estornudas y te pone que el cout << es demasiado ambiguo y te salen 87 errores,
+pero es cuestion de reinicar el visual y magicamente todos los problemas desaparecen
 
 */
 //-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*

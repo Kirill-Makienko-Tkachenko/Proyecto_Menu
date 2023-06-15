@@ -30,6 +30,7 @@ public:
     const int& getCalorias() { return calorias; }
     const int& getCarbohidratos() { return carbohidratos; }
     const int& getGrasas() { return grasas; }
+    const int& getGramaje() { return gramos; }
 
     // Setters
     void setNombre(string nom) { nombre = nom; }
@@ -37,6 +38,7 @@ public:
     void setCalorias(int cal) { calorias = cal; }
     void setCarbohidratos(int carbohidratos) { this->carbohidratos = carbohidratos; }
     void setGrasas(int grasas) { this->grasas = grasas; }
+    void setGramaje(int gramos) { this->gramos = gramos; }
 
     void printIngredient() const {
         cout << "Nombre: " << nombre << endl;
