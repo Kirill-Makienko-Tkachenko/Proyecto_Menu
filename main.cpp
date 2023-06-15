@@ -97,7 +97,7 @@ void readFrutasFromFile(std::vector<Frutas>& frutas, const std::string& filename
         while (getline(file, line)) {
             std::istringstream iss(line);
             std::string name, type, dummy;
-            int calories, carbohydrates, fat, protein;
+            int calories, carbohydrates, fat, protein, grams;
 
             getline(iss, name, ',');
             name = name.substr(1, name.length() - 2);  // Remove quotes
@@ -107,10 +107,10 @@ void readFrutasFromFile(std::vector<Frutas>& frutas, const std::string& filename
             iss >> dummy >> calories >> dummy;
             iss >> dummy >> carbohydrates >> dummy;
             iss >> dummy >> fat >> dummy;
-            iss >> dummy >> protein >> dummy;
-            
+            iss >> dummy >> grams >> dummy;
+            iss >> protein;
 
-            Frutas fru(name, type, calories, carbohydrates, fat, protein);
+            Frutas fru(name, type, calories, carbohydrates, fat, grams, protein);
             frutas.push_back(fru);
         }
         file.close();
@@ -127,7 +127,7 @@ void readGranosFromFile(vector<Granos>& granos, const string& filename) {
         while (getline(file, line)) {
             istringstream iss(line);
             string name, type, dummy;
-            int calories, carbohydrates, fat, protein, fiber;
+            int calories, carbohydrates, fat, protein, fiber, grams;
             bool isWholeGrain;
 
             getline(iss, name, ',');
@@ -138,11 +138,12 @@ void readGranosFromFile(vector<Granos>& granos, const string& filename) {
             iss >> dummy >> calories >> dummy;
             iss >> dummy >> carbohydrates >> dummy;
             iss >> dummy >> fat >> dummy;
+            iss >> dummy >> grams >> dummy;
             iss >> dummy >> protein >> dummy;
             iss >> dummy >> fiber >> dummy;
             iss >> isWholeGrain;
 
-            Granos grano(name, type, calories, carbohydrates, fat, protein, fiber, isWholeGrain);
+            Granos grano(name, type, calories, carbohydrates, fat, grams, protein, fiber, isWholeGrain);
             granos.push_back(grano);
         }
         file.close();
@@ -159,7 +160,7 @@ void readLacteosFromFile(std::vector<Lacteos>& lacteos, const std::string& filen
         while (getline(file, line)) {
             std::istringstream iss(line);
             std::string name, type, dummy;
-            int calories, carbohydrates, fat, protein, fiber, sodium;
+            int calories, carbohydrates, fat, protein, fiber, sodium, grams;
 
             getline(iss, name, ',');
             name = name.substr(1, name.length() - 2);  // Remove quotes
@@ -169,11 +170,12 @@ void readLacteosFromFile(std::vector<Lacteos>& lacteos, const std::string& filen
             iss >> dummy >> calories >> dummy;
             iss >> dummy >> carbohydrates >> dummy;
             iss >> dummy >> fat >> dummy;
+            iss >> dummy >> grams >> dummy;
             iss >> dummy >> protein >> dummy;
             iss >> dummy >> fiber >> dummy;
             iss >> sodium;
 
-            Lacteos lacteo(name, type, calories, carbohydrates, fat, protein, fiber, sodium);
+            Lacteos lacteo(name, type, calories, carbohydrates, fat, grams, protein, fiber, sodium);
             lacteos.push_back(lacteo);
         }
         file.close();
@@ -191,7 +193,7 @@ void readProteinasFromFile(std::vector<Proteina>& proteinas, const std::string& 
         while (getline(file, line)) {
             std::istringstream iss(line);
             std::string name, type, dummy;
-            int calories, carbohydrates, fat, protein, cholesterol, sodium, fiber;
+            int calories, carbohydrates, fat, grams, protein, cholesterol, sodium, fiber;
 
             getline(iss, name, ',');
             name = name.substr(1, name.length() - 2);  // Remove quotes
@@ -201,12 +203,13 @@ void readProteinasFromFile(std::vector<Proteina>& proteinas, const std::string& 
             iss >> dummy >> calories >> dummy;
             iss >> dummy >> carbohydrates >> dummy;
             iss >> dummy >> fat >> dummy;
+            iss >> dummy >> grams >> dummy;
             iss >> dummy >> protein >> dummy;
             iss >> dummy >> cholesterol >> dummy;
             iss >> dummy >> sodium >> dummy;
             iss >> fiber;
 
-            Proteina proteina(name, type, calories, carbohydrates, fat, protein, cholesterol, sodium, fiber);
+            Proteina proteina(name, type, calories, carbohydrates, fat, grams, protein, cholesterol, sodium, fiber);
             proteinas.push_back(proteina);
         }
         file.close();
@@ -223,7 +226,7 @@ void readVerdurasFromFile(std::vector<Verdura>& verduras, const std::string& fil
         while (getline(file, line)) {
             std::istringstream iss(line);
             std::string name, type, dummy;
-            int calories, carbohydrates, fat, protein;
+            int calories, carbohydrates, fat, protein, grams;
             bool isGreen;
 
             getline(iss, name, ',');
@@ -234,10 +237,11 @@ void readVerdurasFromFile(std::vector<Verdura>& verduras, const std::string& fil
             iss >> dummy >> calories >> dummy;
             iss >> dummy >> carbohydrates >> dummy;
             iss >> dummy >> fat >> dummy;
+            iss >> dummy >> grams >> dummy;
             iss >> dummy >> protein >> dummy;
             iss >> isGreen;
 
-            Verdura verdura(name, type, calories, carbohydrates, fat, protein, isGreen);
+            Verdura verdura(name, type, calories, carbohydrates, fat, grams, protein, isGreen);
             verduras.push_back(verdura);
         }
         file.close();
@@ -424,7 +428,7 @@ int main() {
     // Create a vector of Frutas
     vector<Frutas> frutas;
     // Read the file and store the data in the vector
-    readFrutasFromFile(frutas, "fruta.txt");
+    readFrutasFromFile(frutas, "frutas.txt");
 
     // Create a vector of Granos
     vector<Granos> granos;

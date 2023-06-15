@@ -24,9 +24,9 @@ public:
     Proteina() {}
 
     // Parameterized constructor
-    Proteina(string nombre, string tipoIngrediente, int calorias, int carbohidratos, int grasas,
+    Proteina(string nombre, string tipoIngrediente, int calorias, int carbohidratos, int grasas, int gramos,
              int grasasSaturadas, int proteinas, int colesterol, int sodio)
-        : Ingrediente(nombre, tipoIngrediente, calorias, carbohidratos, grasas),
+        : Ingrediente(nombre, tipoIngrediente, calorias, carbohidratos, grasas, gramos),
           grasasSaturadas(grasasSaturadas), proteinas(proteinas), colesterol(colesterol), sodio(sodio) {}
 
     // Setters and Getters

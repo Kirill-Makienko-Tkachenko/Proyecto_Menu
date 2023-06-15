@@ -22,9 +22,9 @@ public:
     Verdura() {}
 
     // Parameterized constructor
-    Verdura(std::string nombre, std::string tipoIngrediente, int calorias, int carbohidratos, int grasas,
+    Verdura(std::string nombre, std::string tipoIngrediente, int calorias, int carbohidratos, int grasas,int gramos,
             int proteinas, bool isOrganico)
-        : Ingrediente(nombre, tipoIngrediente, calorias, carbohidratos, grasas),
+        : Ingrediente(nombre, tipoIngrediente, calorias, carbohidratos, grasas, gramos),
           proteinas(proteinas), isOrganico(isOrganico) {}
 
     // Setters and Getters
