@@ -76,7 +76,7 @@ public:
 
     
     
-    //Read all the data "Fruta" from the file and store it in the vector
+// Read all the data "Fruta" from the file and store it in the vector
 void readFrutasFromFile(std::vector<Frutas>& frutas, const std::string& filename) {
     std::ifstream file(filename);
 
@@ -105,17 +105,17 @@ void readFrutasFromFile(std::vector<Frutas>& frutas, const std::string& filename
     } else {
         throw std::runtime_error("Could not open file " + filename);
     }
-    readFrutasFromFile(frutas, "frutas.txt");
 }
-//Read all the data "Granos" from the file and store it in the vector
-void readGranosFromFile(vector<Granos>& granos, const string& filename) {
-    ifstream file(filename);
+
+// Read all the data "Granos" from the file and store it in the vector
+void readGranosFromFile(std::vector<Granos>& granos, const std::string& filename) {
+    std::ifstream file(filename);
 
     if (file.is_open()) {
-        string line;
+        std::string line;
         while (getline(file, line)) {
-            istringstream iss(line);
-            string name, type, dummy;
+            std::istringstream iss(line);
+            std::string name, type, dummy;
             int calories, carbohydrates, fat, protein, fiber, grams;
             bool isWholeGrain;
 
@@ -139,9 +139,9 @@ void readGranosFromFile(vector<Granos>& granos, const string& filename) {
     } else {
         throw std::runtime_error("Could not open file " + filename);
     }
-    readGranosFromFile(granos, "granos.txt");
 }
-//Read all the data "Lacteos" from the file and store it in the vector
+
+// Read all the data "Lacteos" from the file and store it in the vector
 void readLacteosFromFile(std::vector<Lacteos>& lacteos, const std::string& filename) {
     std::ifstream file(filename);
 
@@ -172,10 +172,9 @@ void readLacteosFromFile(std::vector<Lacteos>& lacteos, const std::string& filen
     } else {
         throw std::runtime_error("Could not open file " + filename);
     }
-    readLacteosFromFile(lacteos, "lacteos.txt");
 }
 
-//Read all the data "Proteina" from the file and store it in the vector
+// Read all the data "Proteina" from the file and store it in the vector
 void readProteinasFromFile(std::vector<Proteina>& proteinas, const std::string& filename) {
     std::ifstream file(filename);
 
@@ -207,9 +206,9 @@ void readProteinasFromFile(std::vector<Proteina>& proteinas, const std::string& 
     } else {
         throw std::runtime_error("Could not open file " + filename);
     }
-    readProteinasFromFile(carnes, "proteina.txt");
 }
 
+// Read all the data "Verdura" from the file and store it in the vector
 void readVerdurasFromFile(std::vector<Verdura>& verduras, const std::string& filename) {
     std::ifstream file(filename);
 
@@ -240,11 +239,26 @@ void readVerdurasFromFile(std::vector<Verdura>& verduras, const std::string& fil
     } else {
         throw std::runtime_error("Could not open file " + filename);
     }
-    readVerdurasFromFile(vegetales, "verduras.txt");
 }
 
-void handleMenuGeneration(vector<Ingrediente*>& ingredientes, vector<Frutas>& frutas, vector<Granos>& granos, vector<Lacteos>& lacteos, vector<Proteina>& proteinas, vector<Verdura>& verduras, size_t position, vector<Usuario>& usuarios) {
+
+void handleMenuGeneration(size_t position, vector<Usuario>& usuarios) {
     
+    std::vector<Frutas> frutas;
+    readFrutasFromFile(frutas, "frutas.txt");
+
+    std::vector<Granos> granos;
+    readGranosFromFile(granos, "granos.txt");
+
+    std::vector<Lacteos> lacteos;
+    readLacteosFromFile(lacteos, "lacteos.txt");
+
+    std::vector<Proteina> proteinas;
+    readProteinasFromFile(proteinas, "proteina.txt");
+
+    std::vector<Verdura> verduras;
+    readVerdurasFromFile(verduras, "verduras.txt");
+
     while (true) {
         cout << "Que desea hacer?" << endl;
         cout << "1. Generar un menu manualmente" << endl;

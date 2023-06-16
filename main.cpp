@@ -53,7 +53,7 @@ using namespace std;
 
 // function to search for a user by name
 
-void registerUser(const vector<Usuario> &usuarios) {
+void registerUser(vector<Usuario> usuarios) {
     string name;
     int weight;
     float height;
@@ -145,7 +145,7 @@ pero es cuestion de reinicar el visual y magicamente todos los problemas desapar
         if (userFound) {
             int position = searchUserPosition(usuarios, nombre); //Search the position of the user to be able to add the diet to their account
             cout << "Bienvenido " << nombre << endl;
-            M1.handleMenuGeneration
+            M1.handleMenuGeneration(position, usuarios);
         } else {
             cout << "Usuario no encontrado. Por favor, registrese." << endl;
             registerUser(usuarios);

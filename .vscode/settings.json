@@ -1,5 +1,6 @@
 {
     "files.associations": {
+        "*.py": "python",
         "iostream": "cpp",
         "iosfwd": "cpp",
         "array": "cpp",
@@ -46,6 +47,7 @@
         "typeinfo": "cpp",
         "fstream": "cpp",
         "sstream": "cpp",
-        "map": "cpp"
+        "map": "cpp",
+        "cstdarg": "cpp"
     }
 }

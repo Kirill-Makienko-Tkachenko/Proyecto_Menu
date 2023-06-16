@@ -19,7 +19,7 @@ private:
     std::string nombre;
     double peso;
     double altura;
-    vector<Ingrediente> ingredientes; //Used to create a vector of ingredients, which will basically be used as the diet, also not a pointer vector because it gives WAY to much trobule
+    vector<Ingrediente*> ingredientes; //Used to create a vector of ingredients, which will basically be used as the diet, also not a pointer vector because it gives WAY to much trobule
     
 public:
     // Default constructor
@@ -45,7 +45,7 @@ public:
     double getAltura() const { return altura; }
 
     // Getter for the vector Ingredientes
-    const std::vector<Ingrediente> getIngredientes() { return ingredientes; }
+    const std::vector<Ingrediente*> getIngredientes() { return ingredientes; }
 
 
     // Calculate BMI
@@ -65,7 +65,7 @@ public:
     }
 
     // Add vector Ingredientes that acts as the diet
-    void agregarIngredientes(std::vector<Ingrediente*>& nuevosIngredientes) {
+    void agregarIngredientes(std::vector<Ingrediente*> nuevosIngredientes) {
         ingredientes.insert(ingredientes.end(), nuevosIngredientes.begin(), nuevosIngredientes.end());
     }
 
