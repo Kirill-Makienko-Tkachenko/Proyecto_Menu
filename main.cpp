@@ -53,7 +53,7 @@ using namespace std;
 
 // function to search for a user by name
 
-void registerUser(vector<Usuario> usuarios) {
+Usuario registerUser(vector<Usuario> usuarios) {
     string name;
     int weight;
     float height;
@@ -66,7 +66,7 @@ void registerUser(vector<Usuario> usuarios) {
     cin >> height;
 
     Usuario usuario(name, weight, height);
-    usuarios.push_back(usuario);
+    return usuario;
     }
 
     int searchUserPosition(const vector<Usuario> &usuarios ,const string& name) {
@@ -101,8 +101,6 @@ int main() {
     
     Usuario usuario1("Kirill", 100, 1.80);
     usuarios.push_back(usuario1);
-
-
 //-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
 //a REALLY STUPID RANT, FEEL FREE TO DONT READ
 /*
@@ -162,6 +160,8 @@ cout << "2. No" << endl;
 int respuesta;
 cin >> respuesta;
 
+bool exitMenu = false;
+do {
 switch (respuesta) {
     case 1: {
         cout << "Ingrese su nombre de usuario" << endl;
@@ -179,16 +179,29 @@ switch (respuesta) {
             respuesta = 2;
             
         }
+        exitMenu = true;  // Set exit condition to end the loop
         break;
     }
-    case 2:
-        registerUser(usuarios);
-        respuesta = 1;
-        break;
-    default:
-        cout << "Opcion invalida" << endl;
-        break;
-}
+    case 2: {
+            {
+                string name;
+                int weight;
+                float height;
 
+                cout << "Ingrese su nombre: ";
+                cin >> name;
+                cout << "Ingrese su peso: ";
+                cin >> weight;
+                cout << "Ingrese su altura: ";
+                cin >> height;
+
+                Usuario new_usuario(name, weight, height);
+                usuarios.push_back(new_usuario);
+                respuesta = 1;
+            }
+            break;
+        }
+}
+} while (!exitMenu);
     return 0;
 }
