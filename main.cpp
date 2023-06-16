@@ -124,38 +124,71 @@ BUSQUENLA, DONDE QUIERA QUE SERA  BUUUSENLAAAAA, QUE MI VIDA SE ACABA Y EL ANTID
 Algo de lo que mes estoy dando cuenta es que a cpp le ENCANTA inventarse errores, estras trabajando bien agusto y de la nada estornudas y te pone que el cout << es demasiado ambiguo y te salen 87 errores,
 pero es cuestion de reinicar el visual y magicamente todos los problemas desaparecen
 
+A WEBOOOOOO YA FUNCIONAAAAAAAAAAA PUTOSSSSSSSSSSSSSSSSSSSSSSSSSS CULIKITAKATI, KULIKITAKATA, CULIKITAKATI, KULIKITAKATA. SAKALAKATIKI SAKATIKI SAKALAKATIKI SAKATIKI
+
+Няма да се караме, няма да се биеме
+Вечер като лягаме, колело ще караме
+Няма да се караме, няма да се биеме
+Вечер като лягаме, колело ще караме
+Комбайна вършачка паламанде1 трошачка
+Комбайна вършачка паламанде трошачка
+й ще свири, драги гости само за вас
+На китарата Васко Жабата,
+Той ще свири, драги гости само за вас
+Ще чуете мелодии, хора, народни песни
+Цигански кючеци, всичките са лесни
+Ще чуете мелодии, хора, народни песни
+Цигански кючеци, всичките са лесни
+На микрофона Цеца Мецата
+Тя ще пее драги гости само за вас
+На микрофона Цеца Мецата
+Тя ще пее драги гости само за вас
+Ще чуете мелодии, хора, народни песни
+Цигански кючеци, всичките са лесни
+Ще чуете мелодии, хора, народни песни
+Цигански кючеци, всичките са лесни
+
+
+
 */
 //-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
 
 
 
     cout << "Bienvenido a la aplicacion de dietas" << endl;
-    cout << "Ya esta registrado?" << endl;
-    cout << "1. Si" << endl;
-    cout << "2. No" << endl;
-    int respuesta;
-    cin >> respuesta;
+cout << "Ya esta registrado?" << endl;
+cout << "1. Si" << endl;
+cout << "2. No" << endl;
+int respuesta;
+cin >> respuesta;
 
-    if (respuesta == 1) {
+switch (respuesta) {
+    case 1: {
         cout << "Ingrese su nombre de usuario" << endl;
         string nombre;
         cin >> nombre;
 
         bool userFound = searchUser(usuarios, nombre);
         if (userFound) {
-            int position = searchUserPosition(usuarios, nombre); //Search the position of the user to be able to add the diet to their account
+            int position = searchUserPosition(usuarios, nombre);
             cout << "Bienvenido " << nombre << endl;
+            cout << position << endl;
             M1.handleMenuGeneration(position, usuarios);
         } else {
             cout << "Usuario no encontrado. Por favor, registrese." << endl;
-            registerUser(usuarios);
+            respuesta = 2;
+            
         }
-    } else if (respuesta == 2) {
+        break;
+    }
+    case 2:
         registerUser(usuarios);
         respuesta = 1;
-    } else {
+        break;
+    default:
         cout << "Opcion invalida" << endl;
-    }
+        break;
+}
 
     return 0;
 }

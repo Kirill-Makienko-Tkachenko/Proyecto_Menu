@@ -88,14 +88,16 @@ void readFrutasFromFile(std::vector<Frutas>& frutas, const std::string& filename
             int calories, carbohydrates, fat, protein, grams;
 
             getline(iss, name, ',');
-            name = name.substr(1, name.length() - 2);  // Remove quotes
+            if (!name.empty()) {
+                name = name.substr(1, name.length() - 2);  // Remove quotes
+            }
 
             getline(iss, dummy, ',');  // Skip type
 
-            iss >> dummy >> calories >> dummy;
-            iss >> dummy >> carbohydrates >> dummy;
-            iss >> dummy >> fat >> dummy;
-            iss >> dummy >> grams >> dummy;
+            iss >> calories >> dummy;
+            iss >> carbohydrates >> dummy;
+            iss >> fat >> dummy;
+            iss >> grams >> dummy;
             iss >> protein;
 
             Frutas fru(name, type, calories, carbohydrates, fat, grams, protein);
@@ -124,12 +126,12 @@ void readGranosFromFile(std::vector<Granos>& granos, const std::string& filename
 
             getline(iss, dummy, ',');  // Skip type
 
-            iss >> dummy >> calories >> dummy;
-            iss >> dummy >> carbohydrates >> dummy;
-            iss >> dummy >> fat >> dummy;
-            iss >> dummy >> grams >> dummy;
-            iss >> dummy >> protein >> dummy;
-            iss >> dummy >> fiber >> dummy;
+            iss >> calories >> dummy;
+            iss >> carbohydrates >> dummy;
+            iss >>  fat >> dummy;
+            iss >> grams >> dummy;
+            iss >> protein >> dummy;
+            iss >> fiber >> dummy;
             iss >> isWholeGrain;
 
             Granos grano(name, type, calories, carbohydrates, fat, grams, protein, fiber, isWholeGrain);
@@ -157,12 +159,12 @@ void readLacteosFromFile(std::vector<Lacteos>& lacteos, const std::string& filen
 
             getline(iss, dummy, ',');  // Skip type
 
-            iss >> dummy >> calories >> dummy;
-            iss >> dummy >> carbohydrates >> dummy;
-            iss >> dummy >> fat >> dummy;
-            iss >> dummy >> grams >> dummy;
-            iss >> dummy >> protein >> dummy;
-            iss >> dummy >> fiber >> dummy;
+            iss >> calories >> dummy;
+            iss >> carbohydrates >> dummy;
+            iss >> fat >> dummy;
+            iss >> grams >> dummy;
+            iss >> protein >> dummy;
+            iss >> fiber >> dummy;
             iss >> sodium;
 
             Lacteos lacteo(name, type, calories, carbohydrates, fat, grams, protein, fiber, sodium);
@@ -183,23 +185,35 @@ void readProteinasFromFile(std::vector<Proteina>& proteinas, const std::string& 
         while (getline(file, line)) {
             std::istringstream iss(line);
             std::string name, type, dummy;
-            int calories, carbohydrates, fat, grams, protein, cholesterol, sodium, fiber;
+            int calories, carbohydrates, fat, grams, protein, cholesterol, sodium, sat_fat;
 
             getline(iss, name, ',');
             name = name.substr(1, name.length() - 2);  // Remove quotes
+            
 
-            getline(iss, dummy, ',');  // Skip type
+            getline(iss, type, ',');
+            type = type.substr(1, type.length() - 2);  // Remove quotes
+           
 
-            iss >> dummy >> calories >> dummy;
-            iss >> dummy >> carbohydrates >> dummy;
-            iss >> dummy >> fat >> dummy;
-            iss >> dummy >> grams >> dummy;
-            iss >> dummy >> protein >> dummy;
-            iss >> dummy >> cholesterol >> dummy;
-            iss >> dummy >> sodium >> dummy;
-            iss >> fiber;
+            iss >> calories >> dummy;
+            
+            iss >> carbohydrates >> dummy;
+            
+            iss >> fat >> dummy;
+            
+            iss >> grams >> dummy;
+            
+            iss >> sat_fat >> dummy;
+            
+            iss >> protein >> dummy;
+           
+            iss >> cholesterol >> dummy;
+            
+            iss >> sodium;
 
-            Proteina proteina(name, type, calories, carbohydrates, fat, grams, protein, cholesterol, sodium, fiber);
+            
+
+            Proteina proteina(name, type, calories, carbohydrates, fat, grams, sat_fat ,protein, cholesterol, sodium);
             proteinas.push_back(proteina);
         }
         file.close();
@@ -225,11 +239,11 @@ void readVerdurasFromFile(std::vector<Verdura>& verduras, const std::string& fil
 
             getline(iss, dummy, ',');  // Skip type
 
-            iss >> dummy >> calories >> dummy;
-            iss >> dummy >> carbohydrates >> dummy;
-            iss >> dummy >> fat >> dummy;
-            iss >> dummy >> grams >> dummy;
-            iss >> dummy >> protein >> dummy;
+            iss >> calories >> dummy;
+            iss >> carbohydrates >> dummy;
+            iss >> fat >> dummy;
+            iss >> grams >> dummy;
+            iss >> protein >> dummy;
             iss >> isGreen;
 
             Verdura verdura(name, type, calories, carbohydrates, fat, grams, protein, isGreen);
@@ -242,8 +256,27 @@ void readVerdurasFromFile(std::vector<Verdura>& verduras, const std::string& fil
 }
 
 
-void handleMenuGeneration(size_t position, vector<Usuario>& usuarios) {
+void handleMenuGeneration( int position, vector<Usuario>& usuarios) {
     
+
+    //Here lies a bug, that I fortunately identified, but I don't have time to fix it
+    //Dont leave blank rows of data data, it throws an error
+    /*
+    Eg:
+
+    1. "Manzana", "Fruta", 52, 14, 0, 100 ,10
+    2. "Platano", "Fruta", 105, 27, 0, 100 ,14
+    3. 
+    4. "Fresa", "Fruta", 33, 8, 0, 100 ,4
+    5. 
+    6. 
+    7.
+
+
+    the lines 3,5,6,7 represent the error
+    */
+    
+    //Also, pay attention to the name of the files, they are hardcoded, so if you change the name of the file, you have to change it here too
     std::vector<Frutas> frutas;
     readFrutasFromFile(frutas, "frutas.txt");
 
@@ -254,10 +287,10 @@ void handleMenuGeneration(size_t position, vector<Usuario>& usuarios) {
     readLacteosFromFile(lacteos, "lacteos.txt");
 
     std::vector<Proteina> proteinas;
-    readProteinasFromFile(proteinas, "proteina.txt");
+    readProteinasFromFile(proteinas, "proteinas.txt");
 
     std::vector<Verdura> verduras;
-    readVerdurasFromFile(verduras, "verduras.txt");
+    readVerdurasFromFile(verduras, "verdura.txt");
 
     while (true) {
         cout << "Que desea hacer?" << endl;

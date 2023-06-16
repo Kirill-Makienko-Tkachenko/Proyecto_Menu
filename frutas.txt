@@ -1,23 +1,15 @@
-"Manzana", "Fruta", 52, 14, 0, 100 ,10
-"Platano", "Fruta", 105, 27, 0, 100 ,14
-"Fresa", "Fruta", 33, 8, 0, 100 ,4
-"Uva", "Fruta", 104, 27, 0, 100 ,23
-"Naranja", "Fruta", 62, 15, 0, 100 ,12
-"Pera", "Fruta", 101, 27, 0, 100 ,17
-"Mango", "Fruta", 99, 25, 0, 100 ,25
-"Sandia", "Fruta", 30, 8, 0, 100 ,6
-"Melon", "Fruta", 30, 8, 0, 100 ,6
-"Kiwi", "Fruta", 42, 11, 0, 100 ,8
-"Limon", "Fruta", 29, 9, 0, 100 ,2
-"Papaya", "Fruta", 43, 11, 0, 100 ,8
-"Cereza", "Fruta", 50, 13, 0, 100 ,10
-"Arandano", "Fruta", 57, 15, 0, 100 ,12
-"Frambuesa", "Fruta", 52, 14, 0, 100 ,10
-
-
-
-
-
-
-
-
+"Manzana", Fruta", 52, 14, 0, 100 ,10
+"Platano", Fruta", 105, 27, 0, 100 ,14
+"Fresa", Fruta", 33, 8, 0, 100 ,4
+"Uva", Fruta", 104, 27, 0, 100 ,23
+"Naranja", Fruta", 62, 15, 0, 100 ,12
+"Pera", Fruta", 101, 27, 0, 100 ,17
+"Mango", Fruta", 99, 25, 0, 100 ,25
+"Sandia", Fruta", 30, 8, 0, 100 ,6
+"Melon", Fruta", 30, 8, 0, 100 ,6
+"Kiwi", Fruta", 42, 11, 0, 100 ,8
+"Limon", Fruta", 29, 9, 0, 100 ,2
+"Papaya", Fruta", 43, 11, 0, 100 ,8
+"Cereza", Fruta", 50, 13, 0, 100 ,10
+"Arandano", Fruta", 57, 15, 0, 100 ,12
+"Frambuesa", Fruta", 52, 14, 0, 100 ,10

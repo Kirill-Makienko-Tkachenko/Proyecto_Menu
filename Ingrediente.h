@@ -50,6 +50,6 @@ public:
 };
 
 ostream& operator<<(ostream& os, Ingrediente& a) {
-    os << "Nombre: " << a.getNombre() << "Tipo de Ingrediente: " << a.getTipoIngrediente() << "Calorías: " << a.getCalorias() << "Carbohidratos: " << a.getCarbohidratos() << "Grasas: " << a.getGrasas() << endl;
+    os << "Nombre: " << a.getNombre() << " Tipo de Ingrediente: " << a.getTipoIngrediente() << " Calorías: " << a.getCalorias() << " Carbohidratos: " << a.getCarbohidratos() << " Grasas: " << a.getGrasas() << " Gramos: " << a.getGramaje() << endl;
     return os;
 }

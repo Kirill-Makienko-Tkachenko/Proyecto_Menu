@@ -83,28 +83,41 @@ public:
         int numVer = getRandNum(0, verduras.size());
         int numFru = getRandNum(0, frutas.size());
 
+        cout << caloriasFrutas << " " << caloriasVerduras << " " << caloriasGranos << " " << caloriasLacteos << " " << caloriasProteina << endl;
         
         ingredientes.push_back(&proteinas[numProt]);
-        ingredientes[0]->setGramaje(caloriasProteina / ingredientes[0]->getCalorias());
+        cout << *ingredientes[0] << " Proteina" << endl;
+        ingredientes[0]->setGramaje((caloriasProteina * 100 )/ ingredientes[0]->getCalorias());
+        ingredientes[0]->setCalorias(ingredientes[0]->getGramaje() * ingredientes[0]->getCalorias() / 100);
 
         ingredientes.push_back(&lacteos[numLac]);
-        ingredientes[1]->setGramaje(caloriasLacteos / ingredientes[1]->getCalorias());
+        cout << *ingredientes[1] << " Lacteos" << endl;
+        ingredientes[1]->setGramaje((caloriasLacteos * 100 )/ ingredientes[1]->getCalorias());
+        ingredientes[1]->setCalorias(ingredientes[1]->getGramaje() * ingredientes[1]->getCalorias() / 100);
 
         ingredientes.push_back(&granos[numGran]);
-        ingredientes[2]->setGramaje(caloriasGranos / ingredientes[2]->getCalorias());
+        cout << *ingredientes[2] << " Granos" << endl;
+        ingredientes[2]->setGramaje((caloriasGranos * 100 )/ ingredientes[2]->getCalorias());
+        ingredientes[2]->setCalorias(ingredientes[2]->getGramaje() * ingredientes[2]->getCalorias() / 100);
 
         ingredientes.push_back(&verduras[numVer]);
-        ingredientes[3]->setGramaje(caloriasVerduras / ingredientes[3]->getCalorias());
+        cout << *ingredientes[3] <<" Verduras" << endl;
+        ingredientes[3]->setGramaje((caloriasVerduras * 100 )/ ingredientes[3]->getCalorias());
+        ingredientes[3]->setCalorias(ingredientes[3]->getGramaje() * ingredientes[3]->getCalorias() / 100);
 
         ingredientes.push_back(&frutas[numFru]);
-        ingredientes[4]->setGramaje(caloriasFrutas / ingredientes[4]->getCalorias());
+        cout << *ingredientes[4] <<" Frutas" << endl;
+        ingredientes[4]->setGramaje((caloriasFrutas * 100 )/ ingredientes[4]->getCalorias());
+        ingredientes[4]->setCalorias(ingredientes[4]->getGramaje() * ingredientes[4]->getCalorias() / 100);
 
+
+        cout << " ------------------------ " << endl;
         //Print the ingredients
-        cout << ingredientes[0] << endl;
-        cout << ingredientes[1] << endl;
-        cout << ingredientes[2] << endl;
-        cout << ingredientes[3] << endl;
-        cout << ingredientes[4] << endl;
+        cout << *ingredientes[0] << endl;
+        cout << *ingredientes[1] << endl;
+        cout << *ingredientes[2] << endl;
+        cout << *ingredientes[3] << endl;
+        cout << *ingredientes[4] << endl;
 
         
 
