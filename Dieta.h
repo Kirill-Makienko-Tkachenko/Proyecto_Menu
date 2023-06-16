@@ -49,11 +49,6 @@ vector<Granos> granos;
 vector<Lacteos> lacteos;
 vector<Proteina> proteinas;
 
-
-
-
-
-
 public:
 
     // Default constructor
@@ -70,12 +65,6 @@ public:
         this->proteinas = proteinas;
 
     }
-
-    
-
-
-
-
     //calculate what calores correspond to each ingredient
     void calcularCaloriasDieta() {
         caloriasFrutas = calorias * perFrutas / 100;
@@ -134,7 +123,7 @@ public:
     //Getters and setters, thihs should be used sparingly, the only one that I see real use is the return of ingredients, nevertheless I wrote them just for good practice and just in case someone needs it
     int getCalorias() { return calorias; }
     void setCalorias(int calorias) {this->calorias = calorias;}
-    vector<Ingrediente*> &getIngredientes() {return ingredientes;}
+    vector<Ingrediente*> getIngredientes() {return ingredientes;}
     void setIngredientes(vector<Ingrediente*> ingredientes) {this->ingredientes = ingredientes;}
     int getPerFrutas() {return perFrutas;}
     void setPerFrutas(int perFrutas) {this->perFrutas = perFrutas;}

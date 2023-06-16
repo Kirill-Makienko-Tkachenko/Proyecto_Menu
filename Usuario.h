@@ -45,7 +45,7 @@ public:
     double getAltura() const { return altura; }
 
     // Getter for the vector Ingredientes
-    const std::vector<Ingrediente>& getIngredientes() { return ingredientes; }
+    const std::vector<Ingrediente> getIngredientes() { return ingredientes; }
 
 
     // Calculate BMI
@@ -65,7 +65,7 @@ public:
     }
 
     // Add vector Ingredientes that acts as the diet
-    void agregarIngredientes(std::vector<Ingrediente>& nuevosIngredientes) {
+    void agregarIngredientes(std::vector<Ingrediente*>& nuevosIngredientes) {
         ingredientes.insert(ingredientes.end(), nuevosIngredientes.begin(), nuevosIngredientes.end());
     }
 

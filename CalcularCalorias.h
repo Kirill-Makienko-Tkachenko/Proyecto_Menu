@@ -7,6 +7,7 @@ Kirill Makienko Tkachenko
 #include <iostream>
 #include <string>
 #include <vector>
+#include <memory>
 #include "Ingrediente.h"
 
 #pragma once
@@ -25,12 +26,11 @@ public:
         ingredientes.push_back(ingrediente);
     }
 
-    void agregarIngredientes(const vector<Ingrediente>& ingredientesVector) {
-        for (const auto& ingrediente : ingredientesVector) {
-            ingredientes.push_back(new Ingrediente(ingrediente));
-        }
+    void agregarIngredientes(const std::vector<Ingrediente*>& ingredientesVector) {
+    for (const auto& ingrediente : ingredientesVector) {
+        ingredientes.push_back(new Ingrediente(*ingrediente));
     }
-
+}
     int calcularTotalCalorias() const {
         int totalCalorias = 0;
         for (const auto& ingrediente : ingredientes) {
