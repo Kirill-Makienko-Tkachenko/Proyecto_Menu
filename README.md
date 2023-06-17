@@ -22,10 +22,12 @@ The maximum quantity of calories will depend on the BMI of the person an whether
 There is going to be a "Minimum menu version" and for any menu/diet undet that quantity of calories the program will give an error
 
 
+1
+Kirill
 2
-Chuy
-70
-1.77
+1060
+3
+
 
 
 
