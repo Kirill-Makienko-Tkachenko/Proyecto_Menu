@@ -493,7 +493,7 @@ void readGranosFromFile(std::vector<Granos>& granos, const std::string& filename
                 cout << "Ingredientes:" << endl;
                 for (int i = 0; i < usuarios[position].getIngredientesSize(); i++)
                 {
-                    cout << i << ". " << *ingredientes2[i] << endl;
+                    cout << i << ". " << ingredientes2[i] << endl; //When I add a pointer to this, it fails, and it fails because the vector that Dieta returns is empty for some reason
                 }
                 //get today's date without horus
 

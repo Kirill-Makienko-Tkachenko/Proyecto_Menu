@@ -19,262 +19,299 @@ The maximum quantity of calories will depend on the BMI of the person an whether
  - x<40 is "Obesity"
 (https://www.nhsinform.scot/healthy-living/food-and-nutrition/healthy-eating-and-weight-loss/body-mass-index-bmi)
 
-There is going to be a "Minimum menu version" and for any menu/diet undet that quantity of calories the program will give an error
+
+#CalcularCalorias Class
+
+There is however a bug that prevents the user from consulting the menus that they have generated because for some reason the vevctor that class Dieta returns is empty, I have tried to fix it but I have not been able to do so, I have tried to fix it by changing the way the vector is returned, and nothing works and now im out of time to try to correct it
 
 
-1
-Kirill
-2
-1060
-3
+    The class has the following private member variables:
+        ingredientes: A vector of pointers to Ingrediente objects. It stores the ingredients used for calculating calories.
+        calorias: An integer representing the total calories calculated from the ingredients.
 
+    Public member functions:
+        agregarIngrediente(Ingrediente* ingrediente): This function takes a pointer to an Ingrediente object and adds it to the ingredientes vector.
+        agregarIngredientes(const std::vector<Ingrediente*>& ingredientesVector): This function takes a vector of pointers to Ingrediente objects and adds them to the ingredientes vector.
+        calcularTotalCalorias() const: This function calculates the total calories by summing up the calories of all the ingredients in the ingredientes vector. It returns the total calories as an integer.
+        calcularTotalCarbohidratos() const: This function calculates the total amount of carbohydrates by summing up the carbohydrates of all the ingredients in the ingredientes vector. It returns the total carbohydrates as an integer.
+        calcularTotalGrasas() const: This function calculates the total amount of fats by summing up the fats of all the ingredients in the ingredientes vector. It returns the total fats as an integer.
 
+    Overloaded operator<<:
+        This friend function overloads the << operator to provide a convenient way to print the CalcularCalorias object. It outputs the total calories, total carbohydrates, and total fats by calling the corresponding member functions of CalcularCalorias.
 
+Overall, the CalcularCalorias class is responsible for aggregating ingredients, calculating the total calories, total carbohydrates, and total fats based on the provided ingredients, and providing a printable representation of the calculated values.
 
-int opcion6;
-        cin >> opcion6;
-        if(opcion6 == 1){
-            cout << "Ingrese su nombre de registro: " << endl;
-            string nombre;
-            cin >> nombre;
-            for (int i = 0; i < usuarios.size(); i++) {
-                if (usuarios[i].getNombre() == nombre) {
-                    cout << "Bienvenido" << nombre << endl;
-                    break; // Exit the loop since the user is found
-                }
-            }
-        }
-        if(opcion6 == 2){
-            cout << "Ingrese su nombre" << endl;
-            string nombre;
-            cin >> nombre;
-            cout << "Ingrese su peso" << endl;
-            int peso;
-            cin >> peso;
-            cout << "Ingrese su altura" << endl;
-            int altura;
-            cin >> altura;
-            Usuario usuario(nombre, peso, altura);
-            usuarios.push_back(usuario);
-            cout << "Bienvenido " << nombre << endl;
-        }
-        
-            
-                
-            
-            
-            
-            
-        }
-                C1.agregarIngredientes(ingredientes);
-                C1.calcularTotalCalorias();
-                C1.calcularTotalCarbohidratos();
-                C1.calcularTotalGrasas();
-                cout << C1 << endl;
-            }
-    if(opcion == 3){
-                //Exit the program
-            }
+#Dieta
+
+    The class has the following private member variables:
+        calorias: An integer representing the total calories of the diet. It is initialized to 500 by default but can be set using the parameterized constructor.
+        ingredientes: A vector of pointers to Ingrediente objects. It stores the selected ingredients for the diet.
+        perFrutas, perVerduras, perGranos, perLacteos, perProteina: These variables represent the percentages of calories allocated to different food groups in the diet.
+        caloriasFrutas, caloriasVerduras, caloriasGranos, caloriasLacteos, caloriasProteina: These variables store the calculated calories for each food group based on the specified percentages.
+        frutas, verduras, granos, lacteos, proteinas: These vectors store the available options for each food group (Frutas, Verdura, Granos, Lacteos, Proteina).
+
+    Public member functions:
+        Dieta(): Default constructor that initializes the calorias variable to 500.
+        Dieta(int calorias): Parameterized constructor that allows setting the calorias variable to a specific value.
+        calcularCaloriasDieta(): This function calculates the calorie distribution for each food group based on the specified percentages (perFrutas, perVerduras, perGranos, perLacteos, perProteina).
+        calcularDieta(): This function calculates the actual diet by randomly selecting ingredients from each food group according to the calculated calorie distribution. It modifies the gramaje (gram weight) of each ingredient to fit the allocated calories. The modified ingredients are added to the ingredientes vector.
+        getRandNum(const int& min, const int& max): This function generates a random number between the given minimum and maximum values.
+
+    Getters and setters: The class provides getter and setter methods for accessing and modifying the private member variables.
+
+Overall, the Dieta class is responsible for generating a diet plan by allocating calories to different food groups based on predefined percentages, randomly selecting ingredients from each food group, and adjusting the gram weight of the ingredients to fit the allocated calories. The calculated diet is stored in the ingredientes vector, which can be accessed and modified using the provided getter and setter methods.
+
+#Ingrediente
+
+    The class has the following private member variables:
+        nombre: A string representing the name of the ingredient.
+        tipoIngrediente: A string representing the type of ingredient.
+        calorias, carbohidratos, grasas: Integers representing the calorie, carbohydrate, and fat content of the ingredient, respectively.
+        gramos: An integer representing the gram weight of the ingredient.
+
+    Constructors:
+        Ingrediente(string nombre, string tipoIngrediente, int calorias, int carbohidratos, int grasas, int gramos): An inline constructor that allows initializing all member variables at the time of object creation.
+        Ingrediente() = default;: A default constructor that takes no arguments and initializes the member variables with default values.
+
+    Getter and setter methods:
+        Getter methods (getNombre(), getTipoIngrediente(), getCalorias(), getCarbohidratos(), getGrasas(), getGramaje()) are provided to access the private member variables.
+        Setter methods (setNombre(), setTipoIngrediente(), setCalorias(), setCarbohidratos(), setGrasas(), setGramaje()) are provided to modify the private member variables.
+
+    Other member functions:
+        printIngredient(): This function prints the details of the ingredient, including its name, type, calories, carbohydrates, and fats.
+
+    Overloaded operators:
+        operator<<(): The << operator is overloaded to allow streaming the ingredient object to an output stream, such as cout. It prints the details of the ingredient in a formatted manner.
+
+The Ingrediente class represents an individual ingredient with its nutritional information. It provides methods to access and modify the ingredient's properties and allows printing the ingredient's details.
+
+#Fruta
+    The Frutas class is derived from the base class Ingrediente, indicating that it inherits the properties and methods of the Ingrediente class.
+
+    The class introduces an additional private member variable:
+        azucar: An integer representing the sugar content of the fruit.
+
+    Constructors:
+        The class provides a default constructor (Frutas()) and a parameterized constructor (Frutas(string nombre, string tipoIngrediente, int calorias, int carbohidratos, int grasas, int gramos, int azucar)) to initialize the member variables of the class. The parameterized constructor calls the base class constructor (Ingrediente) to initialize common properties and sets the azucar value.
+
+    Getter and setter methods:
+        The class provides a getter method (getAzucar()) to access the private azucar member variable.
+        A setter method (setAzucar()) is provided to modify the azucar value.
+
+    Other member functions:
+        printFruit(): This method prints the details of the fruit, including its name, type, calories, carbohydrates, fats, and sugar content.
+
+    Overloaded operators:
+        operator<<(): The << operator is overloaded to allow streaming the Frutas object to an output stream, such as cout. It prints the details of the fruit, including its name, type, calories, carbohydrates, fats, and sugar content, in a formatted manner.
+
+The Frutas class extends the functionality of the base class Ingrediente by introducing the sugar content specific to fruits. It provides methods to access and modify the sugar content and allows printing the details of a fruit.
+
+#Granos
+
+    The Granos class is derived from the base class Ingrediente, indicating that it inherits the properties and methods of the Ingrediente class.
+
+    The class introduces additional private member variables:
+        proteinas: An integer representing the protein content of the grain.
+        sodio: An integer representing the sodium content of the grain.
+        isIntegral: A boolean value indicating whether the grain is whole grain or not.
+
+    Constructors:
+        The class provides a default constructor (Granos()) and a parameterized constructor (Granos(string nombre, string tipoIngrediente, int calorias, int carbohidratos, int grasas, int gramos, int proteinas, int sodio, bool isIntegral)) to initialize the member variables of the class. The parameterized constructor calls the base class constructor (Ingrediente) to initialize common properties and sets the additional properties specific to grains.
+
+    Getter and setter methods:
+        The class provides getter methods (getProteinas(), getSodio(), getIsIntegral()) to access the private member variables.
+        Setter methods (setProteinas(), setSodio(), setIsIntegral()) are provided to modify the respective member variables.
+
+    Other member functions:
+        printGrain(): This method prints the details of the grain, including its name, type, calories, carbohydrates, fats, protein content, sodium content, and whether it is whole grain or not.
+
+    Overloaded operators:
+        operator<<(): The << operator is overloaded to allow streaming the Granos object to an output stream, such as cout. It prints the details of the grain, including its name, type, calories, carbohydrates, fats, protein content, sodium content, and whether it is whole grain or not, in a formatted manner.
+
+The Granos class extends the functionality of the base class Ingrediente by introducing properties specific to grains, such as protein content, sodium content, and whether it is whole grain or not. It provides methods to access and modify these properties and allows printing the details of a grain.
+
+#Lacteos
+
+/*
+Proyecto aplicacion de dieta
+Kirill Makienko Tkachenko
+08/06/2023
+*/
+
+#include <iostream>
+#include <string>
+#include "Ingrediente.h"
+
+#pragma once
+
+//Written with help of ChatGTP
+
+class Lacteos : public Ingrediente {
+private:
+    int grasasSaturadas;
+    int proteinas;
+    int colesterol;
+
+public:
+    // Default constructor
+    Lacteos() {}
+
+    // Parameterized constructor
+    Lacteos(std::string nombre, std::string tipoIngrediente, int calorias, int carbohidratos, int grasas, int gramos,
+            int grasasSaturadas, int proteinas, int colesterol)
+        : Ingrediente(nombre, tipoIngrediente, calorias, carbohidratos, grasas, gramos),
+          grasasSaturadas(grasasSaturadas), proteinas(proteinas), colesterol(colesterol) {}
+
+    // Setters and Getters
+    void setGrasasSaturadas(int grasasSaturadas) { this->grasasSaturadas = grasasSaturadas; }
+    const int& getGrasasSaturadas() const { return grasasSaturadas; }
+
+    void setProteinas(int proteinas) { this->proteinas = proteinas; }
+    const int& getProteinas() { return proteinas; }
+
+    void setColesterol(int colesterol) { this->colesterol = colesterol; }
+    const int& getColesterol() { return colesterol; }
+
+    // Method to print dairy details
+    void printDairy() {
+        std::cout << "Nombre: " << getNombre() << std::endl;
+        std::cout << "Tipo de Ingrediente: " << getTipoIngrediente() << std::endl;
+        std::cout << "Calorías: " << getCalorias() << std::endl;
+        std::cout << "Carbohidratos: " << getCarbohidratos() << std::endl;
+        std::cout << "Grasas: " << getGrasas() << std::endl;
+        std::cout << "Grasas Saturadas: " << grasasSaturadas << std::endl;
+        std::cout << "Proteínas: " << proteinas << std::endl;
+        std::cout << "Colesterol: " << colesterol << std::endl;
     }
-    
-    //Check if the user is already registered
-    //If not, register the user
-    
+};
 
+//Overload << operator
 
+std::ostream& operator<<(std::ostream& os, Lacteos& lacteo) {
+    os << "Nombre: " << lacteo.getNombre() <<  " Tipo de Ingrediente: " << lacteo.getTipoIngrediente() << " Calorías: " << lacteo.getCalorias() << " Carbohidratos: " << lacteo.getCarbohidratos() << " Grasas: " << lacteo.getGrasas() << std::endl;
+    os << " Grasas Saturadas: " << lacteo.getGrasasSaturadas() << " Proteínas: " << lacteo.getProteinas() << " Colesterol: " << lacteo.getColesterol();
+    return os;
+}
 
-void handleMenuGeneration(vector<Ingrediente>& ingredientes, vector<Frutas>& frutas, vector<Granos>& granos, vector<Lacteos>& lacteos, vector<Proteina>& proteinas, vector<Verdura>& verduras, int position, vector<Usuario>& usuarios, int usuario) {
-    while (true) {
-        cout << "Que desea hacer?" << endl;
-        cout << "1. Generar un menu manualmente" << endl;
-        cout << "2. Generar un menu automaticamente en base a calorias" << endl;
-        cout << "3. Generar un menu automaticamente en base a proteinas" << endl;
-        cout << "4. Salir" << endl;
-        int opcion;
-        cin >> opcion;
+#Menu
 
-        switch (opcion) {
-            case 1:
-            //Some code
-            usuario[position].agregarIngredientes(ingredientes);
-            break;
-            case 2:
-            //Some code
+    The Menu class is used to manage the menu and operations of the diet application.
 
+    The class includes private member variables:
+        frutas: A vector of Frutas objects, representing the available fruit ingredients.
+        granos: A vector of Granos objects, representing the available grain ingredients.
+        lacteos: A vector of Lacteos objects, representing the available dairy ingredients.
+        carnes: A vector of Proteina objects, representing the available protein ingredients.
+        usuarios: A vector of Usuario objects, representing the users of the application.
+        vegetales: A vector of Verdura objects, representing the available vegetable ingredients.
+        dietas: A vector of Dieta objects, representing the generated diets.
+        calcularCalorias: A vector of CalcularCalorias objects, used for calorie calculations.
+        ingredientes: A vector of Ingrediente* pointers, used to store the selected ingredients.
 
+    Constructors:
+        The class provides a default constructor (Menu()) and a parameterized constructor (Menu(vector<Frutas> frutas, vector<Granos> granos, vector<Lacteos> lacteos, vector<Proteina> proteinas, vector<Usuario> usuarios, vector<Verdura> verduras, vector<Dieta> dietas, vector<CalcularCalorias> calcularCalorias)) to initialize the member variables of the class.
 
+    Setter and getter methods:
+        The class provides setter and getter methods for each private member variable, allowing access and modification of the data stored in those variables.
 
+    File reading methods:
+        The class includes several methods (readFrutasFromFile(), readGranosFromFile(), readLacteosFromFile(), readProteinasFromFile(), readVerdurasFromFile()) to read data from specific files and populate the corresponding vectors (frutas, granos, lacteos, proteinas, verduras) with the read data.
 
+    Menu generation and handling:
+        The method handleMenuGeneration() is used to handle the menu generation process and user interactions.
+        It provides a menu with different options:
+            Generate a menu manually: Allows the user to select ingredients from different categories (frutas, granos, lacteos, proteinas, verduras) and add them to the ingredientes vector.
+            Generate a menu automatically based on calorie requirements: Calculates the user's Body Mass Index (BMI) and recommends a calorie intake based on it. The user can enter the desired calorie intake, and a diet (Dieta) object is generated with the appropriate ingredients based on the calorie requirement.
+            Review generated diets: Displays the ingredients added to the ingredientes vector and the date when the diet was created.
+            Exit the program.
 
+The Menu class acts as the central control for managing the menu generation and user interactions in the diet application. It provides methods for reading ingredient data from files, generating menus manually or automatically, and handling user input for diet management.
 
+#Proteina
 
+    The Proteina class represents a type of ingredient, specifically proteins, within the diet application.
 
+    The class inherits from the Ingrediente class, which suggests that Proteina is a specialized type of ingredient.
 
+    The class includes private member variables:
+        grasasSaturadas: An integer representing the amount of saturated fat in the protein.
+        proteinas: An integer representing the amount of protein in the protein.
+        colesterol: An integer representing the amount of cholesterol in the protein.
+        sodio: An integer representing the amount of sodium in the protein.
 
+    Constructors:
+        The class provides a default constructor (Proteina()) and a parameterized constructor (Proteina(string nombre, string tipoIngrediente, int calorias, int carbohidratos, int grasas, int gramos, int grasasSaturadas, int proteinas, int colesterol, int sodio)) to initialize the member variables of the class.
 
+    Setter and getter methods:
+        The class provides getter methods for each private member variable, allowing access to the values stored in those variables.
+        The class also provides setter methods to modify the values of grasasSaturadas, proteinas, colesterol, and sodio.
 
+    Method to print protein details:
+        The class includes a method printProtein() that prints the details of the protein, including its name, type, calories, carbohydrates, fats, saturated fats, proteins, cholesterol, and sodium.
 
+    Overloaded stream insertion operator:
+        The class overloads the << operator to allow the object of the Proteina class to be directly printed using cout.
+        The overloaded operator formats the protein details and streams them to the output stream.
 
-//Declare a vector of frutas
-    vector<Frutas> frutas;  
+The Proteina class represents protein ingredients within the diet application. It provides methods to access and modify the protein details and allows for printing the protein details conveniently.
 
-    //Generate the fruits
-    Frutas manzana("Manzana", "Fruta", 52, 14, 0, 10);
-    Frutas platano("Platano", "Fruta", 105, 27, 0, 14);
-    Frutas fresa("Fresa", "Fruta", 33, 8, 0, 4);
-    Frutas uva("Uva", "Fruta", 104, 27, 0, 23);
-    Frutas naranja("Naranja", "Fruta", 62, 15, 0, 12);
-    Frutas pera("Pera", "Fruta", 101, 27, 0, 17);
-    Frutas mango("Mango", "Fruta", 99, 25, 0, 25);
-    Frutas sandia("Sandia", "Fruta", 30, 8, 0, 6);
-    Frutas melon("Melon", "Fruta", 30, 8, 0, 6);
-    Frutas kiwi("Kiwi", "Fruta", 42, 11, 0, 8);
-    Frutas limon("Limon", "Fruta", 29, 9, 0, 2);
-    Frutas papaya("Papaya", "Fruta", 43, 11, 0, 8);
-    Frutas cereza("Cereza", "Fruta", 50, 13, 0, 10);
-    Frutas arandano("Arandano", "Fruta", 57, 15, 0, 12);
-    Frutas frambuesa("Frambuesa", "Fruta", 52, 14, 0, 10);
-    //Add the fruits to the vector of fruits
-    frutas.push_back(manzana);
-    frutas.push_back(platano);
-    frutas.push_back(fresa);
-    frutas.push_back(uva);
-    frutas.push_back(naranja);
-    frutas.push_back(pera);
-    frutas.push_back(mango);
-    frutas.push_back(sandia);
-    frutas.push_back(melon);
-    frutas.push_back(kiwi);
-    frutas.push_back(limon);
-    frutas.push_back(papaya);
-    frutas.push_back(cereza);
-    frutas.push_back(arandano);
-    frutas.push_back(frambuesa);
+#Usuario
 
+    The Usuario class represents a user in the diet application. It stores information about the user's name, weight, height, and their diet ingredients.
 
-    //Declare a vector of granos
-    vector<Granos> granos;
+    The class includes private member variables:
+        nombre: A string representing the name of the user.
+        peso: A double representing the weight of the user.
+        altura: A double representing the height of the user.
+        ingredientes: A vector of pointers to Ingrediente objects, representing the user's diet ingredients.
 
-    //Generate the grains
-    Granos arroz("Arroz", "Grano", 130, 28, 0, 2, 6, true);
-    Granos avena("Avena", "Grano", 389, 66, 0, 17, 2, false);
-    Granos cebada("Cebada", "Grano", 354, 73, 0, 12, 2, true);
-    Granos centeno("Centeno", "Grano", 335, 72, 0, 12, 2, true);
-    Granos maiz("Maiz", "Grano", 365, 76, 0, 10, 4, false);
-    Granos mijo("Mijo", "Grano", 378, 73, 0, 11, 1, true);
-    Granos quinoa("Quinoa", "Grano", 368, 64, 0, 14, 6, false);
-    Granos trigo("Trigo", "Grano", 340, 72, 0, 12, 2, true);
-    Granos trigoSarraceno("Trigo Sarraceno", "Grano", 343, 72, 0, 13, 2, true);
+    Constructors:
+        The class provides a default constructor (Usuario()).
+        It also provides two parameterized constructors:
+            Usuario(const std::string& nombre, double peso, double altura) allows setting the name, weight, and height of the user without specifying the diet ingredients.
+            Usuario(const std::string& nombre, double peso, double altura, vector<Ingrediente*> ingredientes) additionally allows initializing the user's diet ingredients.
 
-    //Add the grains to the vector of grains
+    Setter and getter methods:
+        The class provides setter and getter methods for nombre, peso, and altura to modify and access the corresponding member variables.
 
-    granos.push_back(arroz);
-    granos.push_back(avena);
-    granos.push_back(cebada);
-    granos.push_back(centeno);
-    granos.push_back(maiz);
-    granos.push_back(mijo);
-    granos.push_back(quinoa);
-    granos.push_back(trigo);
-    granos.push_back(trigoSarraceno);
+    Method to calculate BMI:
+        The class includes a method calcularBMI() that calculates the user's BMI (Body Mass Index) based on their weight and height. It returns the calculated BMI value.
 
-    //Declare a vector of lacteos
-    vector<Lacteos> lacteos; 
+    Method to print the user's name:
+        The class includes a method printNombre() that prints the user's name.
 
-    //Generate the dairy products with the following parameters:
-    //string name, string type, int calories, int carbohydrates, int fat, int saturatedFat, int protein, int cholesterol
+    Method to manage diet ingredients:
+        The class provides a method agregarIngredientes() to add a vector of Ingrediente pointers to the user's diet. The method appends the new ingredients to the existing ones.
 
-    Lacteos leche("Leche", "Lacteo", 61, 5, 3, 2, 3, 10);
-    Lacteos queso("Queso", "Lacteo", 402, 1, 33, 21, 25, 105);
-    Lacteos yogurt("Yogurt", "Lacteo", 59, 5, 3, 2, 3, 10);
-    Lacteos mantequilla("Mantequilla", "Lacteo", 717, 0, 81, 51, 1, 215);
-    Lacteos crema("Crema", "Lacteo", 340, 4, 35, 22, 3, 105);
-    Lacteos helado("Helado", "Lacteo", 137, 14, 8, 5, 2, 29);
-    Lacteos lecheC("Leche de Cabra", "Lacteo", 69, 5, 4, 3, 3, 11);
-    Lacteos lecheA("Leche de Almendra", "Lacteo", 39, 2, 3, 0, 1, 0);
-    Lacteos lecheS("Leche de Soya", "Lacteo", 54, 4, 3, 0, 4, 0);
-    
+    Getter method for the vector of diet ingredients:
+        The class includes a getter method getIngredientes() that returns the vector of Ingrediente pointers representing the user's diet ingredients.
 
-    //Add the dairy products to the vector of dairy products
-    lacteos.push_back(leche);
-    lacteos.push_back(queso);
-    lacteos.push_back(yogurt);
-    lacteos.push_back(mantequilla);
-    lacteos.push_back(crema);
-    lacteos.push_back(helado);
-    lacteos.push_back(lecheC);
-    lacteos.push_back(lecheA);
-    lacteos.push_back(lecheS);
+    Overloaded stream insertion operator:
+        The class overloads the << operator to allow the object of the Usuario class to be directly printed using cout.
+        The overloaded operator formats the user's information, including name, weight, and height, and streams them to the output stream.
 
+The Usuario class represents a user within the diet application. It stores user information and provides methods to access and modify that information. It also manages the user's diet ingredients and allows for convenient printing of user details.
 
-    //Declare a vector of proteinas
-    vector<Proteina> proteinas;
+#Verdura
 
-    //Generate the proteins with the following parameters:
-    //string name, string type, int calories, int carbohydrates, int fat, int saturatedFat, int protein, int cholesterol, int sodium
+    The Verdura class represents a vegetable ingredient in the diet application. It is derived from the base class Ingrediente and extends it with additional properties specific to vegetables.
 
-    Proteina pavo("Pavo", "Proteina", 189, 0, 0, 0, 28, 62, 0);
-    Proteina pollo("Pollo", "Proteina", 239, 0, 0, 0, 27, 73, 0);
-    Proteina pescado("Pescado", "Proteina", 206, 0, 0, 0, 22, 58, 0);
-    Proteina huevos("Huevos", "Proteina", 155, 1, 11, 3, 13, 373, 124);
-    Proteina tofu("Tofu", "Proteina", 76, 2, 4, 1, 9, 0, 8);
-    Proteina lentejas("Lentejas", "Proteina", 116, 20, 0, 0, 9, 0, 2);
-    Proteina garbanzos("Garbanzos", "Proteina", 164, 27, 3, 0, 9, 0, 2);
-    Proteina frijoles("Frijoles", "Proteina", 341, 63, 1, 0, 21, 0, 2);
-    Proteina carne("Carne", "Proteina", 250, 0, 0, 0, 26, 93, 0);
-    
-    //Add the proteins to the vector of proteins
-    proteinas.push_back(carne);
-    proteinas.push_back(pavo);
-    proteinas.push_back(pollo);
-    proteinas.push_back(pescado);
-    proteinas.push_back(huevos);
-    proteinas.push_back(tofu);
-    proteinas.push_back(lentejas);
-    proteinas.push_back(garbanzos);
-    proteinas.push_back(frijoles);
-    
-    //Whats the serving size of all the foods?
-    //1 serving of grains = 1/2 cup
-    //1 serving of dairy = 1 cup
-    //1 serving of protein = 1 oz
-    //1 serving of vegetables = 1 cup
-    //1 serving of fruit = 1 cup
+    The class includes private member variables:
+        proteinas: An integer representing the amount of proteins in the vegetable.
+        isOrganico: A boolean indicating whether the vegetable is organic or not.
 
-    //How much is that in grams?
-    //1 serving of grains = 16 grams
-    //1 serving of dairy = 225 grams
-    //1 serving of protein = 28 grams
-    //1 serving of vegetables = 85 grams
-    //1 serving of fruit = 140 grams
+    Constructors:
+        The class provides a default constructor (Verdura()).
+        It also provides a parameterized constructor (Verdura(std::string nombre, std::string tipoIngrediente, int calorias, int carbohidratos, int grasas, int gramos, int proteinas, bool isOrganico)) that allows initializing all the member variables of the Verdura object.
 
+    Setters and getters:
+        The class provides setter and getter methods for proteinas and isOrganico to modify and access the corresponding member variables.
 
-    //Declare a vector of verduras
-    vector<Verdura> verduras;
+    Method to print vegetable details:
+        The class includes a method printVerdura() that prints the details of the vegetable, including its name, type, calories, carbohydrates, fats, proteins, and whether it is organic or not.
 
-    //Generate the vegetables with the following parameters:
-    //string name, string type, int calories, int carbohydrates, int fat, int protein, bool Organic
+    Overloaded stream insertion operator:
+        The class overloads the << operator to allow the object of the Verdura class to be directly printed using cout.
+        The overloaded operator formats the vegetable's information, including name, type, calories, carbohydrates, fats, proteins, and organic status, and streams them to the output stream.
 
-    Verdura zanahoria("Zanahoria", "Verdura", 25, 6, 0, 1, true);
-    Verdura brocoli("Brocoli", "Verdura", 31, 6, 0, 3, true);
-    Verdura espinaca("Espinaca", "Verdura", 23, 4, 0, 3, true);
-    Verdura tomate("Tomate", "Verdura", 22, 5, 0, 1, true);
-    Verdura cebolla("Cebolla", "Verdura", 40, 9, 0, 1, true);
-    Verdura lechuga("Lechuga", "Verdura", 15, 3, 0, 1, true);
-    Verdura pimiento("Pimiento", "Verdura", 40, 9, 0, 1, true);
-    Verdura calabaza("Calabaza", "Verdura", 31, 7, 0, 1, true);
-    Verdura coliflor("Coliflor", "Verdura", 25, 5, 0, 2, true);
-
-    //Add the vegetables to the vector of vegetables
-    verduras.push_back(zanahoria);
-    verduras.push_back(brocoli);
-    verduras.push_back(espinaca);
-    verduras.push_back(tomate);
-    verduras.push_back(cebolla);
-    verduras.push_back(lechuga);
-    verduras.push_back(pimiento);
-    verduras.push_back(calabaza);
-    verduras.push_back(coliflor);
-
-            
-    
+The Verdura class represents a vegetable ingredient within the diet application. It inherits properties and behaviors from the Ingrediente base class and extends it with specific properties related to vegetables. It provides methods to access and modify the vegetable's details and allows for convenient printing of vegetable information.
