@@ -63,14 +63,14 @@ public:
 
     void calcularDieta(std::vector<Frutas> frutas, std::vector<Verdura> verduras, std::vector<Granos> granos, std::vector<Lacteos> lacteos, std::vector<Proteina> proteinas)
     {
-        int numProt = getRandNum(0, proteinas.size());
-        int numLac = getRandNum(0, lacteos.size());
-        int numGran = getRandNum(0, granos.size());
-        int numVer = getRandNum(0, verduras.size());
-        int numFru = getRandNum(0, frutas.size());
+        int numProt = getRandNum(0, proteinas.size()-1);
+        int numLac = getRandNum(0, lacteos.size()-1);
+        int numGran = getRandNum(0, granos.size()-1);
+        int numVer = getRandNum(0, verduras.size()-1);
+        int numFru = getRandNum(0, frutas.size()-1);
 
         std::cout << caloriasFrutas << " " << caloriasVerduras << " " << caloriasGranos << " " << caloriasLacteos << " " << caloriasProteina << std::endl;
-
+        cout << numProt << " " << numLac << " " << numGran << " " << numVer << " " << numFru << std::endl;
         ingredientes.push_back(&proteinas[numProt]);
         std::cout << *ingredientes[0] << " Proteina" << std::endl;
         ingredientes[0]->setGramaje((caloriasProteina * 100) / ingredientes[0]->getCalorias());
