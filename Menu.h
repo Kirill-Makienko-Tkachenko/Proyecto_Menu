@@ -50,6 +50,7 @@ public:
     void setFrutas(vector<Frutas> frutas) { this->frutas = frutas; }
     const vector<Frutas> &getFrutas() const { return frutas; }
 
+
     void setGranos(vector<Granos> granos) { this->granos = granos; }
     const vector<Granos> &getGranos() const { return granos; }
 
@@ -342,7 +343,7 @@ void readGranosFromFile(std::vector<Granos>& granos, const std::string& filename
                         }
                         else
                         {
-                            opcion4 = false;
+                            break;
                         }
                     } // End of opcion2 == 1
                     if (opcion2 == 2)
@@ -367,7 +368,7 @@ void readGranosFromFile(std::vector<Granos>& granos, const std::string& filename
                         }
                         else
                         {
-                            opcion4 = false;
+                            break;
                         }
                     } // End of opcion2 == 2
                     if (opcion2 == 3)
@@ -393,7 +394,7 @@ void readGranosFromFile(std::vector<Granos>& granos, const std::string& filename
                         }
                         else
                         {
-                            opcion4 = false;
+                            break;
                         }
                     } // End of opcion2 == 3
                     if (opcion2 == 4)
@@ -418,7 +419,7 @@ void readGranosFromFile(std::vector<Granos>& granos, const std::string& filename
                         }
                         else
                         {
-                            opcion4 = false;
+                            break;
                         }
                     } // End of opcion2 == 4
                     if (opcion2 == 5)
@@ -443,7 +444,7 @@ void readGranosFromFile(std::vector<Granos>& granos, const std::string& filename
                         }
                         else
                         {
-                            opcion4 = false;
+                            break;
                         }
                     } // End of opcion2 == 5
 
